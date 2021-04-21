@@ -1,0 +1,10 @@
+2021-04-21 02:14:44 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER 
+SELECT[*] * FROM WALLET"; SQL statement:
+SELECT * FROM USER 
+SELECT * FROM WALLET [42000-200]
+2021-04-22 03:05:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM WALLET 
+SELECT[*] * FROM  TRANSACTION"; SQL statement:
+SELECT * FROM WALLET 
+SELECT * FROM  TRANSACTION [42000-200]

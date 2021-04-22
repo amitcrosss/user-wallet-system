@@ -250,4 +250,23 @@ public class WalletServiceImpl implements WalletService {
 		return transactionMessageList;
 
 	}
+
+	@Override
+	public Wallet getWalletBalance(Integer userId, Integer walletId) throws Exception {
+
+		// check if valid userId or not
+		User user = userService.isValidUser(userId);
+		if (user == null) {
+			throw new Exception("UserId is invalid");
+		}
+		// find wallet for user
+		Optional<Wallet> walletOpt = walletRepsitory.findWalletByWalletIdAndUser(walletId, user);
+
+		if (!walletOpt.isPresent()) {
+			throw new Exception("invalid wallet id");
+		}
+		Wallet wallet = walletOpt.get();
+		
+		return wallet;
+	}
 }

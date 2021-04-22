@@ -15,5 +15,7 @@ public interface WalletService {
 			String transactionFeesParty);
 
 	public ArrayList<TransactionMessage> getTrasactionLogs(Integer userId, Integer walletId) throws Exception;
+
+	public Wallet getWalletBalance(Integer userId, Integer walletId) throws Exception;
 	
 }

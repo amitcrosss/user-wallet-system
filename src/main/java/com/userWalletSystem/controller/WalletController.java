@@ -19,6 +19,22 @@ public class WalletController {
 	@Autowired
 	WalletService walletService;
 
+
+	@PostMapping("/wallet/{userId}/getBalance/{walletId}")
+	public ResponseEntity<String> getWalletBalance(@PathVariable Integer userId, @PathVariable Integer walletId) {
+
+		try {
+			Wallet wallet = walletService.getWalletBalance(userId, walletId);
+			String resp = "Current wallet balance " + wallet.getBalance();
+			return new ResponseEntity<>(resp, HttpStatus.OK);
+
+		} catch (Exception e) {
+			String resp = e.getMessage();
+			return new ResponseEntity<>(resp, HttpStatus.EXPECTATION_FAILED);
+		}
+
+	}
+	
 	@PostMapping("/wallet/{userId}/{walletId}/addMoney/amount/{amount}")
 	public ResponseEntity<String> addMoneyToWallet(@PathVariable Integer userId, @PathVariable Integer walletId,
 			@PathVariable Double amount) {
